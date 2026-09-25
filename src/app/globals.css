@@ -1,0 +1,324 @@
+@import "tailwindcss";
+
+/* ============================================================
+   FURBBLE DESIGN SYSTEM — CSS Custom Properties
+   ============================================================ */
+
+@theme {
+  /* Brand Colors */
+  --color-furbble-purple: #6B3FA0;
+  --color-furbble-purple-deep: #4A2670;
+  --color-furbble-purple-light: #8B65B8;
+  --color-furbble-purple-muted: #D4C4E3;
+  --color-furbble-yellow: #F5A623;
+  --color-furbble-yellow-warm: #FFB830;
+  --color-furbble-yellow-light: #FFD680;
+  --color-furbble-cream: #FFF8F0;
+  --color-furbble-cream-dark: #F5EDE3;
+  --color-furbble-white: #FFFFFF;
+  --color-furbble-charcoal: #1A1A2E;
+  --color-furbble-black: #0D0D0D;
+  --color-furbble-muted: #6B7280;
+  --color-furbble-gray: #9CA3AF;
+
+  /* Font Families */
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-furbble-charcoal);
+  background: var(--color-furbble-cream);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-furbble-purple);
+  color: var(--color-furbble-white);
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.text-display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.text-display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.text-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-furbble-muted);
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+.section-padding {
+  padding-left: clamp(1.5rem, 5vw, 6rem);
+  padding-right: clamp(1.5rem, 5vw, 6rem);
+}
+
+.section-spacing {
+  padding-top: clamp(4rem, 10vh, 8rem);
+  padding-bottom: clamp(4rem, 10vh, 8rem);
+}
+
+/* ============================================================
+   BUTTON SYSTEM
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-furbble-purple);
+  color: var(--color-furbble-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-furbble-purple-deep);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-furbble-charcoal);
+  border: 1.5px solid var(--color-furbble-charcoal);
+}
+
+.btn-secondary:hover {
+  background: var(--color-furbble-charcoal);
+  color: var(--color-furbble-white);
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background: var(--color-furbble-yellow);
+  color: var(--color-furbble-charcoal);
+}
+
+.btn-accent:hover {
+  background: var(--color-furbble-yellow-warm);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-furbble-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn .btn-arrow {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   ANIMATED UNDERLINE LINKS
+   ============================================================ */
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   IMAGE SYSTEM
+   ============================================================ */
+
+.img-reveal {
+  overflow: hidden;
+}
+
+.img-reveal img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-reveal:hover img {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-furbble-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-furbble-purple-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-furbble-purple);
+}
+
+/* ============================================================
+   ORGANIC SHAPES (SVG Backgrounds)
+   ============================================================ */
+
+.organic-blob {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   BADGE SYSTEM
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2px;
+}
+
+.badge-yellow {
+  background: var(--color-furbble-yellow);
+  color: var(--color-furbble-charcoal);
+}
+
+.badge-purple {
+  background: var(--color-furbble-purple);
+  color: var(--color-furbble-white);
+}
+
+/* ============================================================
+   SECTION DIVIDER
+   ============================================================ */
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--color-furbble-yellow);
+  border: none;
+}
