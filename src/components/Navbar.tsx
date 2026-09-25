@@ -17,11 +17,10 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          isScrolled
-            ? 'bg-furbble-black/90 backdrop-blur-xl border-b border-white/5'
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled
+          ? 'bg-furbble-black/90 backdrop-blur-xl border-b border-white/5'
+          : 'bg-transparent'
+          }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
@@ -50,16 +49,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:block">
-            <a
-              href="#location"
-              className="font-display text-xs font-semibold tracking-[0.1em] text-furbble-charcoal bg-furbble-yellow px-5 py-2.5 uppercase hover:bg-furbble-yellow-warm transition-all duration-300 hover:-translate-y-0.5"
-            >
-              Visit Us
-            </a>
-          </div>
-
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -73,9 +62,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <motion.div
-        className={`fixed inset-0 z-[99] bg-furbble-black flex flex-col items-center justify-center gap-8 md:hidden ${
-          isMobileOpen ? 'pointer-events-auto' : 'pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-[99] bg-furbble-black flex flex-col items-center justify-center gap-8 md:hidden ${isMobileOpen ? 'pointer-events-auto' : 'pointer-events-none'
+          }`}
         initial={false}
         animate={isMobileOpen ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.3 }}
@@ -93,16 +81,6 @@ export default function Navbar() {
             {item.label}
           </motion.a>
         ))}
-        <motion.a
-          href="#location"
-          onClick={() => setIsMobileOpen(false)}
-          className="btn btn-accent mt-4"
-          initial={{ opacity: 0 }}
-          animate={isMobileOpen ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          Visit Us
-        </motion.a>
       </motion.div>
     </>
   );

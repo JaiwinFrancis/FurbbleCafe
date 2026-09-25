@@ -13,9 +13,9 @@ export default function Location() {
     <section
       id="location"
       ref={ref}
-      className="relative section-spacing section-padding bg-furbble-charcoal overflow-hidden"
+      className="relative w-full section-spacing bg-furbble-charcoal overflow-hidden flex justify-center"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-7xl section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Info */}
           <div>
@@ -30,7 +30,7 @@ export default function Location() {
             </motion.div>
 
             <motion.h2
-              className="text-display-lg text-furbble-white mb-10"
+              className="text-display-lg text-furbble-white mb-16"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -41,60 +41,72 @@ export default function Location() {
             </motion.h2>
 
             {/* Info items */}
-            <div className="space-y-6 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+              {/* Address Block */}
               <motion.div
-                className="flex items-start gap-4"
+                className="flex flex-col p-6 bg-white/[0.03] border border-white/10 rounded-xl hover:bg-white/[0.06] transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 }}
               >
-                <div className="w-10 h-10 flex-shrink-0 bg-furbble-purple/20 flex items-center justify-center">
-                  <MapPin size={16} className="text-furbble-yellow" />
-                </div>
-                <div>
-                  <h4 className="font-display text-sm font-bold text-furbble-white mb-1 uppercase tracking-wide">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-furbble-purple/20 flex items-center justify-center flex-shrink-0">
+                    <MapPin size={18} className="text-furbble-yellow" />
+                  </div>
+                  <h4 className="font-display text-sm font-bold text-furbble-white uppercase tracking-wider">
                     Address
                   </h4>
-                  <p className="text-sm text-white/50">{BRAND.address}</p>
                 </div>
+                <p className="text-sm text-white/60 leading-relaxed mt-auto">
+                  {BRAND.address}
+                </p>
               </motion.div>
 
+              {/* Contact Block */}
               <motion.div
-                className="flex items-start gap-4"
+                className="flex flex-col p-6 bg-white/[0.03] border border-white/10 rounded-xl hover:bg-white/[0.06] transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 }}
               >
-                <div className="w-10 h-10 flex-shrink-0 bg-furbble-purple/20 flex items-center justify-center">
-                  <Clock size={16} className="text-furbble-yellow" />
-                </div>
-                <div>
-                  <h4 className="font-display text-sm font-bold text-furbble-white mb-1 uppercase tracking-wide">
-                    Hours
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-furbble-purple/20 flex items-center justify-center flex-shrink-0">
+                    <Phone size={18} className="text-furbble-yellow" />
+                  </div>
+                  <h4 className="font-display text-sm font-bold text-furbble-white uppercase tracking-wider">
+                    Contact
                   </h4>
-                  <p className="text-sm text-white/50">
-                    Mon – Fri: {BRAND.hours.weekdays}
-                    <br />
-                    Sat – Sun: {BRAND.hours.weekends}
-                  </p>
+                </div>
+                <div className="text-sm text-white/60 leading-relaxed flex flex-col gap-1 mt-auto">
+                  <span>{BRAND.phone}</span>
+                  <span>{BRAND.email}</span>
                 </div>
               </motion.div>
 
+              {/* Hours Block */}
               <motion.div
-                className="flex items-start gap-4"
+                className="flex flex-col p-6 bg-white/[0.03] border border-white/10 rounded-xl sm:col-span-2 hover:bg-white/[0.06] transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 }}
               >
-                <div className="w-10 h-10 flex-shrink-0 bg-furbble-purple/20 flex items-center justify-center">
-                  <Phone size={16} className="text-furbble-yellow" />
-                </div>
-                <div>
-                  <h4 className="font-display text-sm font-bold text-furbble-white mb-1 uppercase tracking-wide">
-                    Contact
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-furbble-purple/20 flex items-center justify-center flex-shrink-0">
+                    <Clock size={18} className="text-furbble-yellow" />
+                  </div>
+                  <h4 className="font-display text-sm font-bold text-furbble-white uppercase tracking-wider">
+                    Hours
                   </h4>
-                  <p className="text-sm text-white/50">{BRAND.phone}</p>
-                  <p className="text-sm text-white/50">{BRAND.email}</p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-white/60 leading-relaxed">
+                  <div>
+                    <span className="block text-white/40 mb-1 text-xs uppercase tracking-widest font-bold">Weekdays</span>
+                    <span>Mon – Fri: {BRAND.hours.weekdays}</span>
+                  </div>
+                  <div>
+                    <span className="block text-white/40 mb-1 text-xs uppercase tracking-widest font-bold">Weekends</span>
+                    <span>Sat – Sun: {BRAND.hours.weekends}</span>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -134,38 +146,16 @@ export default function Location() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <div className="relative aspect-square bg-furbble-black/50 overflow-hidden">
-              {/* Map placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin size={40} className="text-furbble-purple/40 mx-auto mb-4" />
-                  <p className="font-display text-sm font-bold text-white/30 uppercase tracking-wider">
-                    Furbble Café
-                  </p>
-                  <p className="text-xs text-white/20 mt-1">{BRAND.address}</p>
-                </div>
-              </div>
-
-              {/* Decorative grid */}
-              <div className="absolute inset-0 opacity-5"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-                  backgroundSize: '40px 40px',
-                }}
-              />
-
-              {/* Pulsing dot */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <motion.div
-                  className="w-4 h-4 rounded-full bg-furbble-yellow"
-                  animate={{
-                    boxShadow: [
-                      '0 0 0 0 rgba(245, 166, 35, 0.4)',
-                      '0 0 0 20px rgba(245, 166, 35, 0)',
-                    ],
-                  }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                />
-              </div>
+              <iframe
+                src="https://maps.google.com/maps?q=Furbble+Cafe+Nagercoil&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 grayscale contrast-125 opacity-70"
+              ></iframe>
             </div>
 
             {/* Corner accent */}

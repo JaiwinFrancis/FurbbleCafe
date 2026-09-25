@@ -16,7 +16,6 @@ import InstagramWall from '@/components/InstagramWall';
 import Specials from '@/components/Specials';
 import Events from '@/components/Events';
 import Location from '@/components/Location';
-import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -38,7 +37,7 @@ export default function Home() {
         <Specials />
         <Events />
         <Location />
-        <FinalCTA />
+
       </main>
       <Footer />
     </>

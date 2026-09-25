@@ -19,8 +19,8 @@ const socialIcons: Record<string, React.ReactNode> = {
 
 export default function Footer() {
   return (
-    <footer className="bg-furbble-black section-padding py-16">
-      <div className="max-w-7xl mx-auto">
+    <footer className="w-full bg-furbble-black py-16 flex justify-center border-t border-white/5">
+      <div className="w-full max-w-7xl section-padding">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-5">

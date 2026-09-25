@@ -14,10 +14,10 @@ export default function BrandIntro() {
       className="relative section-spacing bg-furbble-white overflow-hidden"
     >
       <div className="section-padding max-w-7xl mx-auto">
-        
+
         {/* Massive Editorial Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start">
-          
+
           {/* Left: The Bold Statement */}
           <div className="lg:col-span-7 z-10 relative">
             <motion.div
@@ -25,12 +25,12 @@ export default function BrandIntro() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h2 className="text-[clamp(2.5rem,6vw,5rem)] leading-[0.9] font-display font-black text-furbble-charcoal uppercase tracking-tighter mb-8">
+              <h2 className="text-[clamp(2.5rem,6vw,5rem)] leading-[1.1] font-display font-black text-furbble-charcoal uppercase tracking-tighter mb-12">
                 Not just
                 <br />
-                <span className="text-furbble-purple">a café.</span>
+                <span className="text-furbble-purple inline-block py-2">a café.</span>
                 <br />
-                It&apos;s a <span className="text-furbble-yellow border-b-8 border-furbble-yellow pb-2">mood.</span>
+                It&apos;s a <span className="text-furbble-yellow inline-block border-b-[8px] border-furbble-yellow pb-2 mb-4">mood.</span>
               </h2>
             </motion.div>
 
@@ -46,7 +46,7 @@ export default function BrandIntro() {
               <p className="text-furbble-muted leading-relaxed">
                 Smashed burgers that make a mess. Shakes you can&apos;t stop thinking about. Coffee that hits different. We stripped away the boring and kept only the good vibes.
               </p>
-              
+
               <div className="mt-12 w-24 h-2 bg-furbble-charcoal" />
             </motion.div>
           </div>
@@ -60,19 +60,17 @@ export default function BrandIntro() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Organic CSS Clip Path to replace generic boxes */}
-              <div 
+              <div
                 className="w-full h-full bg-furbble-purple flex items-center justify-center overflow-hidden"
                 style={{
                   clipPath: 'polygon(10% 0, 100% 5%, 95% 100%, 0 90%)'
                 }}
               >
-                {/* Image Placeholder */}
-                <div className="text-center">
-                  <span className="font-display text-[8rem] font-black text-furbble-purple-deep leading-none">FP</span>
-                  <p className="font-display text-sm font-bold tracking-widest text-white/50 uppercase mt-4">
-                    The Vibe
-                  </p>
-                </div>
+                <img
+                  src="/cutest-guest.png"
+                  alt="Our cutest guest has arrived"
+                  className="w-full h-full object-cover object-center scale-[1.1]"
+                />
               </div>
 
               {/* Graphic Accent */}

@@ -12,9 +12,9 @@ export default function InstagramWall() {
   return (
     <section
       ref={ref}
-      className="relative section-spacing section-padding bg-furbble-white overflow-hidden"
+      className="relative w-full section-spacing bg-furbble-white overflow-hidden flex justify-center"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-7xl section-padding">
         {/* Header */}
         <motion.div
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
@@ -45,7 +45,7 @@ export default function InstagramWall() {
         </motion.div>
 
         {/* Instagram grid — masonry-like */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
           {instagramPosts.map((post, i) => (
             <motion.a
               key={post.id}
@@ -59,18 +59,26 @@ export default function InstagramWall() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.06 }}
             >
-              {/* Placeholder */}
-              <div className="absolute inset-0 bg-gradient-to-br from-furbble-purple/15 to-furbble-purple/5 flex items-center justify-center">
-                <div className="text-center">
-                  {post.type === 'reel' ? (
-                    <Play size={24} className="text-furbble-purple/30 mx-auto" />
-                  ) : (
-                    <div className="w-8 h-8 rounded-full bg-furbble-purple/10 mx-auto flex items-center justify-center">
-                      <span className="font-display text-xs font-bold text-furbble-purple/40">FP</span>
-                    </div>
-                  )}
+              {/* Image / Placeholder */}
+              {post.src ? (
+                <img 
+                  src={post.src} 
+                  alt={post.alt}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-furbble-purple/15 to-furbble-purple/5 flex items-center justify-center">
+                  <div className="text-center">
+                    {post.type === 'reel' ? (
+                      <Play size={24} className="text-furbble-purple/30 mx-auto" />
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-furbble-purple/10 mx-auto flex items-center justify-center">
+                        <span className="font-display text-xs font-bold text-furbble-purple/40">FP</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-furbble-purple/0 group-hover:bg-furbble-purple/60 transition-all duration-400 flex items-center justify-center opacity-0 group-hover:opacity-100">

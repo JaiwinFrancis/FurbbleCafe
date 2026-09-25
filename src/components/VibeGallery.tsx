@@ -9,7 +9,7 @@ export default function VibeGallery() {
 
   return (
     <section id="vibe" className="relative bg-furbble-charcoal py-24 md:py-32 overflow-hidden">
-      
+
       {/* Editorial Header */}
       <div className="px-[clamp(1.5rem,5vw,6rem)] mb-16 relative z-10 flex flex-col md:flex-row justify-between items-end gap-8">
         <div>
@@ -32,11 +32,10 @@ export default function VibeGallery() {
           transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
         >
           {scrollImages.map((img, i) => (
-            <div 
-              key={`row1-${i}`} 
-              className={`relative flex-shrink-0 bg-furbble-black overflow-hidden group ${
-                img.aspect === 'landscape' ? 'w-[60vw] md:w-[40vw] aspect-[16/9]' : 'w-[40vw] md:w-[25vw] aspect-square'
-              }`}
+            <div
+              key={`row1-${i}`}
+              className={`relative flex-shrink-0 bg-furbble-black overflow-hidden group ${img.aspect === 'landscape' ? 'w-[60vw] md:w-[40vw] aspect-[16/9]' : 'w-[40vw] md:w-[25vw] aspect-square'
+                }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-furbble-purple/20 to-furbble-purple/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
                 <span className="text-6xl opacity-30">
@@ -60,11 +59,10 @@ export default function VibeGallery() {
           transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
         >
           {scrollImages.slice().reverse().map((img, i) => (
-            <div 
-              key={`row2-${i}`} 
-              className={`relative flex-shrink-0 bg-furbble-black overflow-hidden group ${
-                img.aspect === 'portrait' ? 'w-[45vw] md:w-[30vw] aspect-[3/4]' : 'w-[40vw] md:w-[25vw] aspect-square'
-              }`}
+            <div
+              key={`row2-${i}`}
+              className={`relative flex-shrink-0 bg-furbble-black overflow-hidden group ${img.aspect === 'portrait' ? 'w-[45vw] md:w-[30vw] aspect-[3/4]' : 'w-[40vw] md:w-[25vw] aspect-square'
+                }`}
             >
               <div className="absolute inset-0 bg-gradient-to-bl from-furbble-yellow/20 to-transparent flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
                 <span className="text-6xl opacity-30">

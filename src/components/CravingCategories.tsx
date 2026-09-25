@@ -18,13 +18,19 @@ export default function CravingCategories() {
       <AnimatePresence mode="wait">
         <motion.div
           key={activeCategory}
-          className="absolute inset-0 z-0 opacity-20 mix-blend-overlay flex items-center justify-center"
+          className="absolute inset-0 z-0 pointer-events-none"
           initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.2, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="text-[40vw]">{active.icon}</span>
+          <div className="absolute top-0 right-0 w-full lg:w-2/3 h-full flex items-start lg:items-center justify-center lg:justify-end pt-12 lg:pt-0 lg:pr-12">
+            <img 
+              src={active.id === 'burgers' ? "/burger-category.png" : `/${active.id}-category.png`}
+              alt={active.name}
+              className="w-[90vw] h-[50vh] lg:w-[50vw] lg:h-[80vh] object-contain drop-shadow-2xl translate-y-[-5%] lg:translate-y-[-10%]" 
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
 
@@ -54,46 +60,13 @@ export default function CravingCategories() {
                     >
                       {category.name}
                     </span>
-                    {activeCategory === category.id && (
-                      <motion.span 
-                        layoutId="activeIcon"
-                        className="text-4xl hidden md:block"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                      >
-                        {category.icon}
-                      </motion.span>
-                    )}
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: Focused Description Area */}
-          <div className="w-full lg:w-1/3">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeCategory}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="bg-furbble-charcoal p-8 md:p-12 shadow-2xl"
-              >
-                <div className="w-12 h-1 bg-white mb-8" />
-                <h3 className="font-display text-3xl font-black text-white uppercase mb-4">
-                  {active.name}
-                </h3>
-                <p className="text-white/60 text-lg leading-relaxed mb-8">
-                  {active.description}
-                </p>
-                <a href="#menu" className="inline-flex items-center gap-4 font-display text-sm font-bold uppercase tracking-widest text-white hover:text-white/70 transition-colors">
-                  Explore <span className="text-2xl leading-none">→</span>
-                </a>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+
 
         </div>
       </div>

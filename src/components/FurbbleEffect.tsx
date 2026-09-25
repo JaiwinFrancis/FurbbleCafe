@@ -22,16 +22,21 @@ export default function FurbbleEffect() {
         <div className="flex flex-col items-center text-center">
           
           <motion.div
+            className="w-full max-w-5xl mx-auto flex flex-col"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="font-display font-black text-[clamp(2.5rem,6vw,6rem)] leading-[0.9] text-furbble-charcoal uppercase tracking-tighter mb-12">
-              You come in <span className="text-white text-stroke-purple border-b-8 border-furbble-purple">hungry.</span>
-              <br />
-              You leave <span className="text-furbble-yellow">happy.</span>
-              <br />
-              You come back <span className="text-furbble-purple">tomorrow.</span>
+            <h2 className="font-display font-black text-[clamp(2.5rem,7vw,7rem)] leading-[1.1] text-furbble-charcoal uppercase tracking-tighter mb-16 text-left md:text-center flex flex-col md:block gap-2">
+              <span className="block">
+                You come in <span className="text-transparent text-stroke-purple relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[8%] after:h-[8%] after:bg-furbble-purple after:-z-10">hungry.</span>
+              </span>
+              <span className="block">
+                You leave <span className="text-furbble-yellow drop-shadow-sm">happy.</span>
+              </span>
+              <span className="block">
+                You come back <span className="text-furbble-purple">tomorrow.</span>
+              </span>
             </h2>
           </motion.div>
 

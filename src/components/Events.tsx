@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 import { eventTypes } from '@/data/content';
 import { ArrowRight } from 'lucide-react';
 
@@ -12,9 +13,9 @@ export default function Events() {
   return (
     <section
       ref={ref}
-      className="relative section-spacing section-padding bg-furbble-cream overflow-hidden"
+      className="relative w-full section-spacing bg-furbble-cream overflow-hidden flex justify-center"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-7xl section-padding">
         {/* Header */}
         <motion.div
           className="mb-16"
@@ -44,10 +45,14 @@ export default function Events() {
               transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
             >
               {/* Image */}
-              <div className="relative aspect-[3/4] mb-5 overflow-hidden bg-furbble-charcoal">
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-furbble-purple/20 to-transparent group-hover:from-furbble-purple/30 transition-all duration-500">
-                  <span className="text-5xl group-hover:scale-110 transition-transform duration-500">{event.icon}</span>
-                </div>
+              <div className="relative aspect-[3/4] mb-5 overflow-hidden rounded-2xl bg-furbble-charcoal shadow-md">
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-furbble-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
 
               {/* Info */}
