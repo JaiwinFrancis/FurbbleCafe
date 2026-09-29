@@ -19,6 +19,7 @@ export default function Hero() {
         >
           <source src="/Hero_Theme.mp4" type="video/mp4" />
         </video>
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
       </div>
 
       {/* Top Navigation padding area */}
@@ -83,7 +84,7 @@ export default function Hero() {
 
       {/* Massive Background Typography */}
       <motion.div
-        className="absolute -bottom-8 lg:-bottom-16 left-0 right-0 pointer-events-none overflow-hidden flex justify-center z-10"
+        className="absolute -bottom-8 lg:-bottom-16 left-0 right-0 pointer-events-none overflow-hidden flex justify-center z-0"
         initial={{ y: '100%' }}
         animate={{ y: 0 }}
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 2.5 }}
