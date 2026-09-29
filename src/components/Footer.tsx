@@ -19,33 +19,36 @@ const socialIcons: Record<string, React.ReactNode> = {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-furbble-black py-16 flex justify-center border-t border-white/5">
-      <div className="w-full max-w-7xl section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+    <footer className="w-full bg-furbble-black section-spacing flex justify-center border-t border-white/5">
+      <div className="w-full max-w-7xl mx-auto section-padding">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 mb-24 md:mb-32">
           {/* Brand */}
-          <div className="md:col-span-5">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-full bg-furbble-purple flex items-center justify-center">
-                <span className="font-display text-sm font-bold text-furbble-yellow">FP</span>
+          <div className="md:col-span-6 lg:col-span-5">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 rounded-full bg-furbble-purple flex items-center justify-center flex-shrink-0">
+                <span className="font-display text-base font-bold text-furbble-yellow">FP</span>
               </div>
-              <span className="font-display text-lg font-bold tracking-[0.15em] text-furbble-white uppercase">
+              <span className="font-display text-2xl font-bold tracking-[0.15em] text-furbble-white uppercase">
                 {BRAND.name}
               </span>
             </div>
-            <p className="font-display text-xs font-medium tracking-[0.2em] text-white/30 uppercase">
+            <p className="font-display text-sm font-medium tracking-[0.2em] text-white/30 uppercase leading-relaxed max-w-sm">
               {BRAND.tagline}
             </p>
           </div>
 
+          {/* Spacer for desktop */}
+          <div className="hidden lg:block lg:col-span-3"></div>
+
           {/* Navigation */}
-          <div className="md:col-span-3">
-            <h4 className="text-label text-furbble-yellow mb-4">Navigate</h4>
-            <nav className="space-y-3">
+          <div className="md:col-span-3 lg:col-span-2">
+            <h4 className="text-label text-furbble-yellow mb-8">Navigate</h4>
+            <nav className="space-y-4">
               {FOOTER_NAV.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="block font-body text-sm text-white/40 hover:text-furbble-white transition-colors duration-300"
+                  className="block font-body text-base text-white/40 hover:text-furbble-white transition-colors duration-300"
                 >
                   {item.label}
                 </a>
@@ -54,16 +57,16 @@ export default function Footer() {
           </div>
 
           {/* Social */}
-          <div className="md:col-span-4">
-            <h4 className="text-label text-furbble-yellow mb-4">Connect</h4>
-            <div className="space-y-3">
+          <div className="md:col-span-3 lg:col-span-2">
+            <h4 className="text-label text-furbble-yellow mb-8">Connect</h4>
+            <div className="space-y-4">
               {SOCIAL_LINKS.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-white/40 hover:text-furbble-yellow transition-colors duration-300 group"
+                  className="flex items-center gap-3 text-base text-white/40 hover:text-furbble-yellow transition-colors duration-300 group"
                 >
                   <span className="group-hover:text-furbble-yellow transition-colors">
                     {socialIcons[link.icon]}
@@ -79,11 +82,11 @@ export default function Footer() {
         <div className="h-[1px] bg-white/5 mb-8" />
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-white/20 font-body">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-sm text-white/20 font-body">
             © {new Date().getFullYear()} {BRAND.fullName}. All rights reserved.
           </p>
-          <p className="text-xs text-white/20 font-body">
+          <p className="text-sm text-white/20 font-body">
             {BRAND.address}
           </p>
         </div>

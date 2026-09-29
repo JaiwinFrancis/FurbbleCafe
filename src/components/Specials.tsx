@@ -63,6 +63,7 @@ export default function Specials() {
                     src={item.image}
                     alt={item.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   {item.badge && (
@@ -122,6 +123,7 @@ export default function Specials() {
                   src={selectedItem.image}
                   alt={selectedItem.name}
                   fill
+                  sizes="(max-width: 640px) 100vw, 600px"
                   className="object-cover"
                 />
                 {selectedItem.badge && (

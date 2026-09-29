@@ -24,54 +24,53 @@ export default function VibeGallery() {
         </div>
       </div>
 
-      {/* Infinite Marquee 1 - Going Left */}
-      <div className="relative flex overflow-hidden mb-8">
-        <motion.div
-          className="flex gap-8 px-4"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-        >
-          {scrollImages.map((img, i) => (
-            <div
-              key={`row1-${i}`}
-              className={`relative flex-shrink-0 bg-furbble-black overflow-hidden group ${img.aspect === 'landscape' ? 'w-[60vw] md:w-[40vw] aspect-[16/9]' : 'w-[40vw] md:w-[25vw] aspect-square'
-                }`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-furbble-purple/20 to-furbble-purple/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
-                <span className="text-6xl opacity-30">
-                  {img.type === 'food' ? '🍔' : img.type === 'interior' ? '🛋️' : '📸'}
-                </span>
+      {/* Marquee Rows */}
+      <div className="flex flex-col gap-4">
+        {/* Infinite Marquee 1 - Going Left */}
+        <div className="relative flex overflow-hidden">
+          <motion.div
+            className="flex gap-4 px-4"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+          >
+            {scrollImages.map((img, i) => (
+              <div
+                key={`row1-${i}`}
+                className={`relative flex-shrink-0 bg-furbble-black overflow-hidden group ${img.aspect === 'landscape' ? 'w-[60vw] md:w-[40vw] aspect-[16/9]' : 'w-[40vw] md:w-[25vw] aspect-square'
+                  }`}
+              >
+                <div className="absolute inset-0 bg-furbble-charcoal flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover opacity-80" />
+                </div>
+                {/* Brutalist overlay label */}
+                <div className="absolute bottom-4 left-4 bg-furbble-yellow text-furbble-charcoal px-3 py-1 font-display text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {img.type}
+                </div>
               </div>
-              {/* Brutalist overlay label */}
-              <div className="absolute bottom-4 left-4 bg-furbble-yellow text-furbble-charcoal px-3 py-1 font-display text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {img.type}
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
+            ))}
+          </motion.div>
+        </div>
 
-      {/* Infinite Marquee 2 - Going Right */}
-      <div className="relative flex overflow-hidden">
-        <motion.div
-          className="flex gap-8 px-4"
-          animate={{ x: ['-50%', '0%'] }}
-          transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
-        >
-          {scrollImages.slice().reverse().map((img, i) => (
-            <div
-              key={`row2-${i}`}
-              className={`relative flex-shrink-0 bg-furbble-black overflow-hidden group ${img.aspect === 'portrait' ? 'w-[45vw] md:w-[30vw] aspect-[3/4]' : 'w-[40vw] md:w-[25vw] aspect-square'
-                }`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-bl from-furbble-yellow/20 to-transparent flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
-                <span className="text-6xl opacity-30">
-                  {img.type === 'food' ? '🍟' : img.type === 'people' ? '👥' : '📸'}
-                </span>
+        {/* Infinite Marquee 2 - Going Right */}
+        <div className="relative flex overflow-hidden">
+          <motion.div
+            className="flex gap-4 px-4"
+            animate={{ x: ['-50%', '0%'] }}
+            transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+          >
+            {scrollImages.slice().reverse().map((img, i) => (
+              <div
+                key={`row2-${i}`}
+                className={`relative flex-shrink-0 bg-furbble-black overflow-hidden group ${img.aspect === 'portrait' ? 'w-[45vw] md:w-[30vw] aspect-[3/4]' : 'w-[40vw] md:w-[25vw] aspect-square'
+                  }`}
+              >
+                <div className="absolute inset-0 bg-furbble-charcoal flex items-center justify-center group-hover:scale-105 transition-transform duration-1000">
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover opacity-80" />
+                </div>
               </div>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
 
       {/* Gradient Fades for Marquee edges */}

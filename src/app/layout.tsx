@@ -53,8 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${dmSans.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${sora.variable} ${dmSans.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

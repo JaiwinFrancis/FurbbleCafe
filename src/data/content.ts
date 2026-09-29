@@ -59,7 +59,7 @@ export interface GalleryImage {
 export const galleryImages: GalleryImage[] = [
   {
     id: 'g1',
-    src: '/images/gallery/interior-1.jpg',
+    src: '/hangout-interior.jpg',
     alt: 'Furbble café interior with purple walls and wooden tables',
     aspect: 'landscape',
     type: 'interior',
@@ -73,14 +73,14 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: 'g3',
-    src: '/images/gallery/people-1.jpg',
+    src: '/hangout-people.jpg',
     alt: 'Friends hanging out at Furbble',
     aspect: 'portrait',
     type: 'people',
   },
   {
     id: 'g4',
-    src: '/images/gallery/branding-1.jpg',
+    src: '/hangout-food-2.jpg',
     alt: 'Furbble branded cup and packaging',
     aspect: 'square',
     type: 'branding',
@@ -94,7 +94,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: 'g6',
-    src: '/images/gallery/interior-2.jpg',
+    src: '/hangout-interior.jpg',
     alt: 'Furbble wall mural with mascot',
     aspect: 'landscape',
     type: 'interior',
@@ -155,9 +155,9 @@ export const eventTypes: EventType[] = [
 ];
 
 export const instagramPosts = [
-  { id: 'ig1', src: '/images/instagram/post-1.jpg', alt: 'Furbble food shot', type: 'image' as const },
-  { id: 'ig2', src: '/images/instagram/post-2.jpg', alt: 'Café vibes', type: 'reel' as const },
-  { id: 'ig3', src: '/images/instagram/post-3.jpg', alt: 'Burger close-up', type: 'image' as const },
-  { id: 'ig4', src: '/images/instagram/post-4.jpg', alt: 'Friends at Furbble', type: 'image' as const },
-  { id: 'ig5', src: '/images/instagram/post-5.jpg', alt: 'Shake preparation', type: 'reel' as const },
+  { id: 'ig1', src: '/hangout-food-1.jpg', alt: 'Furbble food shot', type: 'image' as const },
+  { id: 'ig2', src: '/hangout-interior.jpg', alt: 'Café vibes', type: 'reel' as const },
+  { id: 'ig3', src: '/mushroom-beef-burger.jpg', alt: 'Burger close-up', type: 'image' as const },
+  { id: 'ig4', src: '/hangout-people.jpg', alt: 'Friends at Furbble', type: 'image' as const },
+  { id: 'ig5', src: '/split-shake.jpg', alt: 'Shake preparation', type: 'reel' as const },
 ];

@@ -82,17 +82,10 @@ export default function Menu() {
                 </p>
               </div>
               
-              <div className="flex-shrink-0 flex items-center justify-between md:justify-end gap-6 md:w-48">
+              <div className="flex-shrink-0 flex items-center justify-between md:justify-end gap-6 md:w-32">
                 <span className="font-display text-2xl font-bold text-furbble-white group-hover:text-furbble-yellow transition-colors">
                   {product.price}
                 </span>
-                
-                {/* Visual Indicator instead of always-visible image */}
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-furbble-yellow group-hover:border-furbble-yellow transition-all duration-300">
-                  <span className="text-lg opacity-50 group-hover:opacity-100 group-hover:text-furbble-charcoal transition-all">
-                    {categories.find(c => c.id === product.category)?.icon || '✨'}
-                  </span>
-                </div>
               </div>
             </motion.article>
           ))}
